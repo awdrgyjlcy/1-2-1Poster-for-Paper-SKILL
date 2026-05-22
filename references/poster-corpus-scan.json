@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-05-22T06:42:27.778762+00:00",
+  "total_poster_links": 13135,
+  "sources": [
+    {
+      "venue": "NeurIPS",
+      "year": 2024,
+      "index_url": "https://nips.cc/virtual/2024/papers.html?filter=titles",
+      "poster_links": 4538,
+      "sample_urls": [
+        "https://nips.cc/virtual/2024/poster/92923",
+        "https://nips.cc/virtual/2024/poster/92924",
+        "https://nips.cc/virtual/2024/poster/92925"
+      ],
+      "sample_titles": [
+        "NeurIPS Poster Stress-Testing Capability Elicitation With Password-Locked Models",
+        "NeurIPS Poster Cooperative Hardware-Prompt Learning for Snapshot Compressive Imaging",
+        "NeurIPS Poster PERIA: Perceive, Reason, Imagine, Act via Holistic Language and Vision Planning for Manipulation"
+      ]
+    },
+    {
+      "venue": "NeurIPS",
+      "year": 2023,
+      "index_url": "https://nips.cc/virtual/2023/papers.html?filter=titles",
+      "poster_links": 3585,
+      "sample_urls": [
+        "https://nips.cc/virtual/2023/poster/69865",
+        "https://nips.cc/virtual/2023/poster/69866",
+        "https://nips.cc/virtual/2023/poster/69867"
+      ],
+      "sample_titles": [
+        "NeurIPS Poster What is Flagged in Uncertainty Quantification? Latent Density Models for Uncertainty Categorization",
+        "NeurIPS Poster Don\u2019t blame Dataset Shift! Shortcut Learning due to Gradients and Cross Entropy",
+        "NeurIPS Poster Enhancing Adversarial Contrastive Learning via Adversarial Invariant Regularization"
+      ]
+    },
+    {
+      "venue": "ICLR",
+      "year": 2024,
+      "index_url": "https://iclr.cc/virtual/2024/papers.html?filter=titles",
+      "poster_links": 2296,
+      "sample_urls": [
+        "https://iclr.cc/virtual/2024/poster/17365",
+        "https://iclr.cc/virtual/2024/poster/17366",
+        "https://iclr.cc/virtual/2024/poster/17367"
+      ],
+      "sample_titles": [
+        "ICLR Poster Breaking Physical and Linguistic Borders: Multilingual Federated Prompt Tuning for Low-Resource Languages",
+        "ICLR Poster On the generalization capacity of neural networks during generic multimodal reasoning",
+        "ICLR Poster Learning Mean Field Games on Sparse Graphs: A Hybrid Graphex Approach"
+      ]
+    },
+    {
+      "venue": "CVPR",
+      "year": 2024,
+      "index_url": "https://cvpr.thecvf.com/virtual/2024/papers.html?filter=titles",
+      "poster_links": 2716,
+      "sample_urls": [
+        "https://cvpr.thecvf.com/virtual/2024/poster/29177",
+        "https://cvpr.thecvf.com/virtual/2024/poster/29178",
+        "https://cvpr.thecvf.com/virtual/2024/poster/29179"
+      ],
+      "sample_titles": [
+        "CVPR Poster Holistic Features are almost Sufficient for Text-to-Video Retrieval",
+        "CVPR Poster Data-Efficient Unsupervised Interpolation Without Any Intermediate Frame for 4D Medical Images",
+        "CVPR Poster Prompt-Free Diffusion: Taking \u201cText\u201d out of Text-to-Image Diffusion Models"
+      ]
+    }
+  ]
+}

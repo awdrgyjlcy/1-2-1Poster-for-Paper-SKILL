@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Poster 1:2:1"
+  short_description: "Plan and build 1:2:1 academic and betterposter-style posters"
+  default_prompt: "Use $paper-poster-121 to plan a 1:2:1 academic poster layout from a paper or outline."
