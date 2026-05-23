@@ -1,6 +1,6 @@
 ---
 name: paper-poster-121
-description: "Design and structure 1:2:1 academic conference posters with narrow side columns and a wide center column for method-heavy research stories. Use when the user asks for a 1:2:1 poster, betterposter, billboard-style poster, academic poster layout, conference poster layout, CVPR-style poster, or to analyze accessible paper-poster pairs and public poster corpora to turn a paper/outline/results into a three-zone poster plan and paper-to-poster correspondence map."
+description: "Design and structure body-only 1:2:1 academic conference posters with three separated rounded rectangles: narrow left card, wide center card, narrow right card. Use when the user asks for a 1:2:1 poster, betterposter, academic poster layout, conference poster layout, CVPR-style poster, or to analyze accessible paper-poster pairs and public poster corpora to turn a paper/outline/results into a three-card poster plan and paper-to-poster correspondence map."
 ---
 
 # Paper Poster 1:2:1
@@ -13,7 +13,8 @@ Use this skill to turn a paper, abstract, method outline, or result dump into a 
 
 - Treat the poster as a visual abstract, not a paper reprint, but do not make it text-starved.
 - Aim for one main point, then support it with figures plus enough source-backed explanatory text for each major section.
-- Keep the title short, clear, and the largest text on the page.
+- Default to a body-only three-card composition: no separate top title band, subtitle/author band, metric strip, footer, or full-width bottom bar unless the user explicitly requests them.
+- If a paper title/claim is needed, place it compactly inside one of the three cards; do not create a standalone title region.
 - Use 2-3 colors max and avoid red/green pairings.
 - Treat colors as semantic roles, not isolated hex values: primary/header, secondary/module, accent/highlight, background, surface, text, and chart colors.
 - Target an information-rich academic balance: roughly 20-30% whitespace, 35-45% graphics/tables, and 25-35% text.
@@ -31,7 +32,7 @@ Use this skill to turn a paper, abstract, method outline, or result dump into a 
 1. Distill the story into one claim:
    `problem -> key idea -> evidence -> takeaway`.
 2. Lock the 1:2:1 canvas:
-   top title band, left motivation column, center wide method column, right experiments column, small footer/contact strip.
+   exactly three side-by-side rounded rectangles with visible gaps; left motivation card, center wide method card, right experiments/evidence card; width ratio must be `1:2:1`.
 3. Allocate content by role:
    left = why it matters, center = how it works, right = why it is convincing.
 4. Select visuals before writing copy:
@@ -47,7 +48,7 @@ Use this skill to turn a paper, abstract, method outline, or result dump into a 
 9. Rewrite text into poster language:
    compact paragraphs, bullets, labels, callouts, numbers, and figure captions; preserve key definitions, mechanism explanations, result interpretation, and caveats.
 10. Produce a `POSTER_121_PLAN.md` before implementation:
-   include title band, section map, text ledger, figure list, word budget, color/type choices, and review risks.
+   include card map, text ledger, figure list, word budget, color/type choices, card geometry, gutter sizes, and review risks.
 11. Build in the user's target stack:
    use LaTeX/tcbposter for print PDF, HTML/CSS for fast visual iteration, or PPTX/SVG when editability matters.
 12. Review visually:
@@ -66,7 +67,7 @@ Before final layout rendering, build a source-backed text ledger and prevent und
 3. Set an information-rich word budget:
    default A0/A1 target is 650-950 body words excluding author affiliations and table cell text; for a text-dense reference poster, allow 750-1100 words if readability survives.
 4. Use section-level text floors:
-   left column 130-220 words, center column 240-360 words, right column 200-320 words, footer/contact 20-60 words. Every major body section should have at least 45 words or at least 3 meaningful bullets/caption sentences unless it is purely a figure/table label.
+   left card 130-220 words, center card 240-360 words, right card 200-320 words, optional in-card contact/caveat note 20-60 words. Every major body section should have at least 45 words or at least 3 meaningful bullets/caption sentences unless it is purely a figure/table label.
 5. Preserve scientific payload:
    keep enough text for a viewer to answer what the problem is, what is new, how it works, what evidence supports it, and when it may fail.
 6. Rewrite, do not paste:
@@ -87,7 +88,7 @@ Before final layout rendering, create a color-choice checkpoint and stop for use
 4. Check contrast before showing:
    body text on surfaces should target WCAG AA contrast; large poster titles and header text must remain legible from distance.
 5. Generate visual preview images:
-   for each scheme, create a PNG/SVG/HTML-screenshot swatch board that shows color chips, semantic roles, a mini 1:2:1 poster mockup, section headers, callout boxes, a sample chart/table highlight, and sample body/caption text.
+   for each scheme, create a PNG/SVG/HTML-screenshot swatch board that shows color chips, semantic roles, a mini three-rounded-card 1:2:1 poster mockup, section headers, callout boxes, a sample chart/table highlight, and sample body/caption text.
 6. Present the previews together:
    save them under a clear folder such as `poster/color-options/` and summarize tradeoffs in `POSTER_121_COLOR_OPTIONS.md`.
 7. Stop and ask the user to choose:
@@ -117,10 +118,14 @@ When the topic is in computer science or a nearby technical field, ground the po
 
 ## Layout Defaults
 
-- Use a 1:2:1 width ratio for body columns. For landscape posters, this usually means side columns around 22-25% each and the center around 46-52%.
-- Make the center column visually dominant: large architecture/method figure on top, then 2-3 concise module explanations underneath.
-- Keep the left column lighter: motivation, bottleneck, preliminary observation, or contribution bullets.
-- Keep the right column evidence-heavy: compact result table or plot, efficiency/performance comparison, ablation/analysis plots, and one compact takeaway.
+- Use exactly three top-level rounded rectangles as the visible poster body. Do not add a separate title/header band, metric strip, footer/contact strip, QR strip, or full-width bottom takeaway bar by default.
+- Use a strict 1:2:1 width ratio for the three cards. For landscape posters, allocate available inner width as `left:gutter:center:gutter:right`, with the card widths in `1:2:1` and gutters excluded from the ratio.
+- Put clear whitespace between cards: use gutters around 2.5-4% of canvas width each, and outer margins around 2-4% of canvas width. The three cards should not touch.
+- Make all three cards aligned to the same top and bottom edges, with consistent rounded corners. Use a modest radius (roughly 12-24 px for screen previews, or visually equivalent in print units).
+- Put any required title, authors, QR, references, or caveats inside the three cards only when necessary; never create a separate outside band unless the user asks for a conventional conference poster.
+- Make the center card visually dominant: large architecture/method figure on top or center, then concise module explanations underneath or beside it.
+- Keep the left card focused on motivation, bottleneck, preliminary observation, or contribution bullets.
+- Keep the right card evidence-heavy: compact result table or plot, efficiency/performance comparison, ablation/analysis plots, and one compact takeaway.
 - Use numbered section headers such as `1. Motivation`, `2. Method`, `3. Experiments` when the paper story is linear.
 
 ## Detailed Playbook
@@ -152,6 +157,7 @@ python scripts/collect_poster_corpus.py --query "<task method domain evidence>" 
 - Do not fabricate claims, metrics, affiliations, logos, or citations.
 - Do not dump paper prose into the poster; rewrite into short bullets and callouts.
 - Do not let equal-width grids override the 1:2:1 story. The center column must earn its width.
+- Do not place a standalone title area, metrics band, footer, or bottom takeaway strip outside the three rounded 1:2:1 cards unless explicitly requested.
 - Do not build a wall-of-text IMRAD poster unless the venue explicitly requires it.
 - Do not start final rendering until the claim, column roles, and figure list are explicit.
 - Ask at most one clarifying question only when the missing information would otherwise force fabricated results or branding.

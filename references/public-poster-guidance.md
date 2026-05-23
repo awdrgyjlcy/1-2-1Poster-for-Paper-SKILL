@@ -30,15 +30,14 @@ The shared pattern is not "make everything tiny and empty". It is:
 3. Keep figures legible and prominent.
 4. Limit color and font variety.
 5. Leave breathing room.
-6. Provide QR/contact details for follow-up.
+6. Provide QR/contact details for follow-up when needed, but keep them inside the chosen composition.
 
 ## How This Skill Uses The Sources
 
 The skill turns those shared patterns into a 1:2:1 layout choice:
 
-- left: problem and motivation,
-- center: method and hero figure,
-- right: evidence and comparison,
-- footer: contact and follow-up.
+- left rounded card: problem and motivation,
+- center rounded card: method and hero figure,
+- right rounded card: evidence, comparison, and any compact contact/follow-up note if needed.
 
-That structure keeps the poster visually simple without becoming too empty for method-heavy research.
+That structure keeps the poster visually simple without adding separate title, metric, or footer bands.

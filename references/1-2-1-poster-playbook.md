@@ -1,4 +1,4 @@
-# 1:2:1 Academic Poster Playbook
+﻿# 1:2:1 Academic Poster Playbook
 
 Use this reference after `SKILL.md` when a user wants a concrete poster plan, mockup, or production checklist.
 
@@ -14,7 +14,7 @@ Open academic poster guidance is surprisingly consistent:
 - Keep the main text readable from about 1.5m away.
 - Use short bullets, not paper paragraphs.
 - Include enough explanatory text that each section carries scientific content rather than becoming a decorative label.
-- Provide author/contact details, references, and a QR code for follow-up material.
+- Put author/contact details, references, and QR code inside one of the three cards only if needed; the default composition has no separate header or footer band.
 - Add a semantic check: can the poster answer the paper's core questions, not just look polished?
 
 These rules are consistent with Barker & Phillips (2021), UNCW poster guidance, Purdue poster guidance, and the Frontiers analysis of "wall of text" posters. The billboard-style/BetterPoster literature also supports a minimalist, one-main-point layout, while noting that methods and limitations should still be present.
@@ -68,12 +68,12 @@ Before drawing, create a text ledger that forces source coverage and prevents sp
 
 | Source material | Poster destination | Required text payload |
 | --- | --- | --- |
-| Abstract + contribution list | header/intro | claim, novelty, one-sentence value proposition |
+| Abstract + contribution list | left or center card intro | claim, novelty, one-sentence value proposition |
 | Introduction | left column | task definition, why it matters, bottleneck, 2-4 contributions |
 | Method | center column | module names, mechanism explanation, design rationale, key equation/notation meaning |
 | Experiments | right column | datasets, metrics, baselines, main numbers, what the numbers mean |
 | Ablations/analysis | right column | why the method works, efficiency/robustness/failure interpretation |
-| Limitations/conclusion | right/footer | caveat, deployment condition, or final takeaway |
+| Limitations/conclusion | right card or compact in-card note | caveat, deployment condition, or final takeaway |
 
 For each destination, mark whether it has `definition`, `mechanism`, `evidence`, and `interpretation`. A poster can omit some labels, but it should not omit all interpretation.
 
@@ -83,11 +83,11 @@ Build a short matrix before drafting text:
 
 | Paper section | Poster zone | What changes |
 | --- | --- | --- |
-| Title/abstract | header + claim line | compress into one sentence |
+| Title/abstract | compact in-card claim line | compress into one sentence |
 | Introduction | left column | keep only the bottleneck and why it matters |
 | Method | center column | enlarge the core mechanism, reduce implementation detail |
 | Results | right column | keep strongest evidence, cut redundant rows/plots |
-| Limitations | footer/callout | keep short and factual |
+| Limitations | right-card callout or compact in-card note | keep short and factual |
 
 The matrix should answer four questions: what gets enlarged, what gets compressed, what gets reordered, and what gets omitted.
 
@@ -107,31 +107,29 @@ The 1:2:1 layout still applies: left explains why the evidence matters, center s
 
 ## Canvas Model
 
-Default landscape structure:
+Default landscape structure is body-only: three rounded rectangles, aligned top/bottom, with visible gutters.
 
 ```text
-+-------------------------------------------------------------------+
-| Logos | Title, authors, affiliations                       Venue   |
-+------------------+--------------------------------+---------------+
-| 1. Motivation    | 2. Method                      | 3. Experiments|
-| narrow, light    | wide, visual, explanatory      | narrow, dense |
-|                  |                                |               |
-| observations     | hero pipeline / architecture   | tables/plots  |
-| contribution     | module details / equations     | ablations     |
-+------------------+--------------------------------+---------------+
-| optional footer: project URL / QR / email / acknowledgements       |
-+-------------------------------------------------------------------+
+canvas margin
+  [ rounded left card ]   gutter   [      rounded center card      ]   gutter   [ rounded right card ]
+  [ 1. Motivation     ]            [ 2. Method                     ]            [ 3. Evidence      ]
+  [ problem/context   ]            [ hero pipeline / architecture  ]            [ tables/plots     ]
+  [ contribution      ]            [ module details / equations    ]            [ ablations        ]
 ```
 
-Width ratio: `1 : 2 : 1`. Use the center as the visual anchor; side columns should feel supportive, not equally important.
+Width ratio: `1 : 2 : 1` for the three card widths. Gutters and outer margins are outside this ratio. Use the center as the visual anchor; side cards should feel supportive, not equally important.
 
-Typical vertical allocation:
+Required geometry:
 
-| Region | Height Share | Purpose |
-| --- | ---: | --- |
-| Title band | 12-16% | identity, conference signal, authors, logos |
-| Body | 76-84% | three-column story |
-| Footer | 0-6% | email, QR, short URL, optional acknowledgement |
+| Element | Default |
+| --- | --- |
+| Outer margin | 2-4% of canvas width |
+| Gutter between cards | 2.5-4% of canvas width each |
+| Card widths | 1:2:1 after subtracting margins/gutters |
+| Card height | same top and bottom for all three cards |
+| Corner radius | visually consistent, modest rounded rectangle |
+
+Do not create separate top title areas, subtitle/author bands, metric strips, footers, QR strips, or full-width takeaway bars unless the user explicitly asks for a conventional conference poster.
 
 ## Column Recipes
 
@@ -221,15 +219,15 @@ Copy rules:
 
 Use a restrained academic design:
 
-- Top band: logos left/right, centered title, authors below, affiliations in smaller type.
-- Keep logos out of the title cluster when possible so the title stays dominant.
-- Section cards: small radius, subtle shadow, strong header bar or left accent stripe.
+- Three top-level cards: left, center, right. These are the only major containers.
+- Keep title/authors/logos out of the canvas by default; if required, place them compactly inside the relevant card.
+- Cards: rounded rectangles, subtle shadow or border, strong header bar or left accent stripe.
 - Color: one dark primary color for headers, one accent for highlights, neutral background.
 - Rhythm: repeat card padding, title size, line weight, and caption style.
 - Figures: align baselines and keep captions visually consistent.
 - Tables: highlight only the rows/columns that support the claim.
 
-For a CVPR-like example, use navy headers, white body cards, compact black text, and conference/organization logos in the title band.
+For a sample-like body-only poster, use a neutral canvas background, three separated rounded white or lightly tinted cards, and compact dark text with restrained accent rules.
 
 ## Production Flow
 
@@ -237,7 +235,7 @@ For a CVPR-like example, use navy headers, white body cards, compact black text,
 2. Produce 3+ color-direction previews and stop for user choice.
 3. Build the text ledger and confirm text sufficiency for each column.
 4. Confirm the figure list, corpus abstraction decisions, and missing placeholders.
-5. Build a low-fidelity layout first: boxes, section titles, figure slots, table slots, and text blocks.
+5. Build a low-fidelity layout first: three rounded 1:2:1 cards, gutters, section titles, figure slots, table slots, and text blocks.
 6. Insert figures, tables, and source-backed text before polishing layout.
 7. Rewrite copy to fit the actual boxes without deleting essential definitions, mechanism explanations, or result interpretations.
 8. Render to PDF/PNG and visually review.
@@ -268,8 +266,12 @@ Recommended plan template:
 ## Canvas
 - Size/orientation:
 - Venue/theme:
-- Column ratio: 1:2:1
-- Header/footer needs:
+- Top-level structure: three rounded rectangles only
+- Card ratio: 1:2:1
+- Outer margins:
+- Inter-card gutters:
+- Corner radius:
+- In-card title/contact needs:
 
 ## Color Direction
 - Options generated:
@@ -309,7 +311,9 @@ Pass/fail checks:
 - Are all numbers traceable to the source material?
 - Is every figure readable at poster-session distance?
 - Are tables compact, highlighted, and readable at poster distance?
-- Does the title remain the strongest element in the header band?
+- Are there exactly three top-level rounded cards in 1:2:1 ratio?
+- Are the gutters between the three cards visibly empty and consistent?
+- Are separate title, metric, footer, and full-width takeaway bands absent unless explicitly requested?
 - Are side columns supporting, not competing with, the method column?
 - Are headers, gutters, baselines, and card edges aligned?
 - Is there no clipped text, tiny caption, broken logo, or unexplained acronym?

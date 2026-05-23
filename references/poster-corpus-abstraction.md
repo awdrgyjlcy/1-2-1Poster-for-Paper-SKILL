@@ -146,7 +146,7 @@ Across these pairs, the poster follows viewer questions rather than paper chrono
 - Left column gets the audience problem, task definition, bottleneck, motivating example, and contribution bullets.
 - Center column gets the method hero, module labels, minimal equations, mechanism explanation, and the clearest explanation of novelty.
 - Right column gets the experimental setup, main table or plot, ablations, efficiency or robustness analysis, result interpretation, and final takeaway.
-- Footer gets QR/contact/references; do not spend body column space on follow-up material.
+- QR/contact/references, if required, should be compactly placed inside one of the three cards; do not add a separate footer band in the body-only layout.
 - If a section does not answer the claim, method, evidence, or caveat question, cut it or move it behind the QR code.
 
 ## Topic-Neighbor Sampling
@@ -192,7 +192,7 @@ These examples are patterns, not claims about a specific paper.
 - Enough body text and captions for each section to carry scientific content.
 - Figures that do the storytelling.
 - Metrics that support the claim, not every number in the paper.
-- Visible contact, QR, and references for follow-up.
+- Visible contact, QR, and references for follow-up when needed, placed inside the card system.
 
 ## Common Failure Modes
 
