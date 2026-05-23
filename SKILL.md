@@ -15,6 +15,7 @@ Use this skill to turn a paper, abstract, method outline, or result dump into a 
 - Aim for one main point, then support it with figures plus enough source-backed explanatory text for each major section.
 - Default to a body-only three-card composition: no separate top title band, subtitle/author band, metric strip, footer, or full-width bottom bar unless the user explicitly requests them.
 - If a paper title/claim is needed, place it compactly inside one of the three cards; do not create a standalone title region.
+- Fill the vertical canvas with the three cards; avoid large unused bottom whitespace or short cards floating in the upper area.
 - Use 2-3 colors max and avoid red/green pairings.
 - Treat colors as semantic roles, not isolated hex values: primary/header, secondary/module, accent/highlight, background, surface, text, and chart colors.
 - Target an information-rich academic balance: roughly 20-30% whitespace, 35-45% graphics/tables, and 25-35% text.
@@ -41,19 +42,21 @@ Use this skill to turn a paper, abstract, method outline, or result dump into a 
    map title/abstract, intro, method, results, and limitations into poster zones; decide what gets enlarged, compressed, reordered, or omitted before you write poster copy.
 6. Run the text sufficiency checkpoint:
    extract enough important source-backed text from the paper for every poster zone; set a word budget and section-level text floor before layout rendering.
-7. Run the color direction checkpoint:
+7. Run the vertical fill checkpoint:
+   set card height, internal section stacking, and content density so the three cards use the available poster height without leaving a large bottom blank region.
+8. Run the color direction checkpoint:
    based on the paper topic, venue, domain, figures, and logos, propose at least 3 distinct visual color schemes; generate a separate palette preview image for each scheme; ask the user to choose one before any final drawing or rendering continues.
-8. Run the corpus-grounded abstraction pass:
+9. Run the corpus-grounded abstraction pass:
    apply the corpus-derived paper-to-poster compression rules and compare them against the correspondence matrix; when refreshing the skill or doing broad genre learning, search 1000+ accessible paper-poster pairs from official CS conference virtual sites; for a specific paper, optionally sample 20-50 topic-neighbor posters before copywriting.
-9. Rewrite text into poster language:
+10. Rewrite text into poster language:
    compact paragraphs, bullets, labels, callouts, numbers, and figure captions; preserve key definitions, mechanism explanations, result interpretation, and caveats.
-10. Produce a `POSTER_121_PLAN.md` before implementation:
-   include card map, text ledger, figure list, word budget, color/type choices, card geometry, gutter sizes, and review risks.
-11. Build in the user's target stack:
+11. Produce a `POSTER_121_PLAN.md` before implementation:
+   include card map, text ledger, figure list, word budget, color/type choices, card geometry, gutter sizes, vertical fill plan, and review risks.
+12. Build in the user's target stack:
    use LaTeX/tcbposter for print PDF, HTML/CSS for fast visual iteration, or PPTX/SVG when editability matters.
-12. Review visually:
-   check 60-second comprehension, center-column dominance, readability from distance, alignment, no clipping, and no unsupported numbers.
-13. Review semantically:
+13. Review visually:
+   check 60-second comprehension, center-column dominance, readability from distance, alignment, no clipping, no unsupported numbers, and no excessive bottom blank space.
+14. Review semantically:
    ask 3-5 core questions about the paper and verify the poster lets a viewer answer them without reading the full paper.
 
 ## Text Sufficiency Checkpoint
@@ -101,6 +104,23 @@ Palette preview requirements:
 - Avoid relying on color alone to encode experimental meaning; pair color with labels, line styles, or symbols.
 - Respect venue or institution brand colors when logos require them, but do not let brand colors overwhelm paper readability.
 
+## Vertical Fill Checkpoint
+
+Before final rendering, prevent bottom-heavy empty space and keep the three-card layout proportionally balanced.
+
+1. Define the usable body box:
+   after subtracting outer margins, the three cards should occupy the full usable height. The card bottoms should sit within 2-3% of canvas height from the intended bottom margin.
+2. Use equal card height:
+   left, center, and right cards must share the same top and bottom coordinates unless the user explicitly asks for staggered cards.
+3. Fill each card internally:
+   target 75-90% internal content occupancy after padding. Empty space inside a card should be distributed as intentional breathing room between sections, not concentrated as one large blank area at the bottom.
+4. If bottom blank space appears:
+   first expand or move content downward within the card, then increase figure/table height, add source-backed captions or interpretation bullets, split dense text into subblocks, or rebalance section heights. Do not solve it by adding an external footer band.
+5. Use bottom anchors:
+   every card should have a meaningful lower anchor such as a takeaway, caveat, mini table, compact citation/contact note, or small diagnostic figure placed inside the card.
+6. Render-check the result:
+   after exporting PDF/PNG/SVG, inspect the full page. If the empty area below the three cards or at the bottom of any card exceeds about 8-10% of card height, revise layout before final delivery.
+
 ## Corpus-Grounded Abstraction Pass
 
 When the topic is in computer science or a nearby technical field, ground the poster plan in a searchable paper-poster corpus before final copywriting.
@@ -122,6 +142,7 @@ When the topic is in computer science or a nearby technical field, ground the po
 - Use a strict 1:2:1 width ratio for the three cards. For landscape posters, allocate available inner width as `left:gutter:center:gutter:right`, with the card widths in `1:2:1` and gutters excluded from the ratio.
 - Put clear whitespace between cards: use gutters around 2.5-4% of canvas width each, and outer margins around 2-4% of canvas width. The three cards should not touch.
 - Make all three cards aligned to the same top and bottom edges, with consistent rounded corners. Use a modest radius (roughly 12-24 px for screen previews, or visually equivalent in print units).
+- The three cards should fill the usable vertical body. Avoid layouts where the cards or their content stop early and leave a large empty strip at the bottom.
 - Put any required title, authors, QR, references, or caveats inside the three cards only when necessary; never create a separate outside band unless the user asks for a conventional conference poster.
 - Make the center card visually dominant: large architecture/method figure on top or center, then concise module explanations underneath or beside it.
 - Keep the left card focused on motivation, bottleneck, preliminary observation, or contribution bullets.
@@ -158,6 +179,7 @@ python scripts/collect_poster_corpus.py --query "<task method domain evidence>" 
 - Do not dump paper prose into the poster; rewrite into short bullets and callouts.
 - Do not let equal-width grids override the 1:2:1 story. The center column must earn its width.
 - Do not place a standalone title area, metrics band, footer, or bottom takeaway strip outside the three rounded 1:2:1 cards unless explicitly requested.
+- Do not leave a large bottom blank area. If content is short, enlarge/rebalance in-card figures, captions, takeaway blocks, or source-backed explanations inside the three cards.
 - Do not build a wall-of-text IMRAD poster unless the venue explicitly requires it.
 - Do not start final rendering until the claim, column roles, and figure list are explicit.
 - Ask at most one clarifying question only when the missing information would otherwise force fabricated results or branding.

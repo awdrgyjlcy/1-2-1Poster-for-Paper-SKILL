@@ -10,6 +10,7 @@ Open academic poster guidance is surprisingly consistent:
 - Keep the story flowing left to right or top to bottom.
 - Use only 2-3 colors, with strong contrast and no red/green pairing.
 - Keep enough white space for readability, but academic posters can be information-rich: use roughly 20-30% empty space, 35-45% graphics/tables, and 25-35% text when the reference style is text-dense.
+- Distribute whitespace intentionally; do not leave most empty space as a large strip below the cards or at the bottom of one card.
 - Make the title the largest text, keep it short, and avoid competing logos in the title area.
 - Keep the main text readable from about 1.5m away.
 - Use short bullets, not paper paragraphs.
@@ -127,9 +128,19 @@ Required geometry:
 | Gutter between cards | 2.5-4% of canvas width each |
 | Card widths | 1:2:1 after subtracting margins/gutters |
 | Card height | same top and bottom for all three cards |
+| Card vertical span | fills usable body height after margins |
 | Corner radius | visually consistent, modest rounded rectangle |
 
 Do not create separate top title areas, subtitle/author bands, metric strips, footers, QR strips, or full-width takeaway bars unless the user explicitly asks for a conventional conference poster.
+
+Vertical fill rules:
+
+- The three cards should extend from the top body margin to the bottom body margin. Do not let them float in the upper canvas.
+- Keep final bottom margin visually similar to the top margin, usually within 2-4% of canvas width/height depending on format.
+- Inside each card, target 75-90% content occupancy after padding.
+- Avoid a single empty bottom zone larger than 8-10% of card height.
+- Give every card a bottom anchor: takeaway, caveat, mini result, compact contact/citation note, or small diagnostic visual.
+- If the first render has too much bottom whitespace, rebalance inside the cards before changing canvas size.
 
 ## Column Recipes
 
@@ -226,8 +237,21 @@ Use a restrained academic design:
 - Rhythm: repeat card padding, title size, line weight, and caption style.
 - Figures: align baselines and keep captions visually consistent.
 - Tables: highlight only the rows/columns that support the claim.
+- Vertical rhythm: distribute sections from top to bottom; do not stack everything at the top and leave the lower card empty.
 
 For a sample-like body-only poster, use a neutral canvas background, three separated rounded white or lightly tinted cards, and compact dark text with restrained accent rules.
+
+## Vertical Fill Tactics
+
+When the rendered poster has too much blank space at the bottom:
+
+- Increase figure/table height inside the card before adding decoration.
+- Move a takeaway, caveat, or compact contact note to the card bottom as an anchor.
+- Split a dense paragraph into two smaller subblocks and place the second lower in the card.
+- Add source-backed caption text or result interpretation bullets where the paper has material to support them.
+- Rebalance section heights so figures, captions, and callouts form a top-to-bottom rhythm.
+- If one card is much shorter internally, add a small in-card diagnostic, mini table, equation note, or limitation box from the paper.
+- Keep the three top-level cards the same height; do not solve bottom blank space by shortening one card.
 
 ## Production Flow
 
@@ -238,8 +262,9 @@ For a sample-like body-only poster, use a neutral canvas background, three separ
 5. Build a low-fidelity layout first: three rounded 1:2:1 cards, gutters, section titles, figure slots, table slots, and text blocks.
 6. Insert figures, tables, and source-backed text before polishing layout.
 7. Rewrite copy to fit the actual boxes without deleting essential definitions, mechanism explanations, or result interpretations.
-8. Render to PDF/PNG and visually review.
-9. Export final PDF, editable PPTX/SVG, and source files as requested.
+8. Run a vertical fill pass: check bottom margin, internal card occupancy, and bottom anchors.
+9. Render to PDF/PNG and visually review.
+10. Export final PDF, editable PPTX/SVG, and source files as requested.
 
 Recommended plan template:
 
@@ -270,6 +295,9 @@ Recommended plan template:
 - Card ratio: 1:2:1
 - Outer margins:
 - Inter-card gutters:
+- Card height / vertical span:
+- Bottom margin:
+- Internal occupancy target:
 - Corner radius:
 - In-card title/contact needs:
 
@@ -299,6 +327,7 @@ Recommended plan template:
 ## Risks
 - Missing data:
 - Overfull areas:
+- Excess bottom whitespace:
 - Readability concerns:
 ```
 
@@ -313,6 +342,9 @@ Pass/fail checks:
 - Are tables compact, highlighted, and readable at poster distance?
 - Are there exactly three top-level rounded cards in 1:2:1 ratio?
 - Are the gutters between the three cards visibly empty and consistent?
+- Do the three cards fill the usable body height with no large bottom blank strip?
+- Is each card internally occupied enough, with no bottom empty zone larger than about 8-10% of card height?
+- Does every card have a meaningful bottom anchor inside the card?
 - Are separate title, metric, footer, and full-width takeaway bands absent unless explicitly requested?
 - Are side columns supporting, not competing with, the method column?
 - Are headers, gutters, baselines, and card edges aligned?
