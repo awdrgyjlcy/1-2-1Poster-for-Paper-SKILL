@@ -129,6 +129,7 @@ Required geometry:
 | Card widths | 1:2:1 after subtracting margins/gutters |
 | Card height | same top and bottom for all three cards |
 | Card vertical span | fills usable body height after margins |
+| Lower-half content | each card has at least one substantive lower-half block |
 | Corner radius | visually consistent, modest rounded rectangle |
 
 Do not create separate top title areas, subtitle/author bands, metric strips, footers, QR strips, or full-width takeaway bars unless the user explicitly asks for a conventional conference poster.
@@ -137,10 +138,19 @@ Vertical fill rules:
 
 - The three cards should extend from the top body margin to the bottom body margin. Do not let them float in the upper canvas.
 - Keep final bottom margin visually similar to the top margin, usually within 2-4% of canvas width/height depending on format.
-- Inside each card, target 75-90% content occupancy after padding.
-- Avoid a single empty bottom zone larger than 8-10% of card height.
+- Inside each card, target 85-95% content occupancy after padding.
+- Avoid a single empty bottom zone larger than 5-6% of card height.
+- The final non-background element in every card should sit in the lower 10% of the card.
 - Give every card a bottom anchor: takeaway, caveat, mini result, compact contact/citation note, or small diagnostic visual.
 - If the first render has too much bottom whitespace, rebalance inside the cards before changing canvas size.
+
+Vertical packing model:
+
+- Top zone: title/claim, short setup, or section heading.
+- Upper-middle zone: main figure, table, or mechanism.
+- Lower-middle zone: explanation, interpretation, comparison, or caveat.
+- Bottom zone: bottom anchor. This must be real content, not decorative whitespace.
+- Do not place all content above the vertical midpoint of a card.
 
 ## Column Recipes
 
@@ -206,15 +216,15 @@ Avoid:
 
 ## Content Budget
 
-Default target: 650-950 body words, excluding table text and author affiliations. If matching a text-dense sample poster, allow 750-1100 words as long as the body remains readable from poster-session distance and no text clips.
+Default target: 900-1300 body words, excluding table text and author affiliations. If matching a text-dense sample poster, allow 1100-1500 words as long as the body remains readable from poster-session distance and no text clips.
 
 | Area | Target Words | Visual Priority |
 | --- | ---: | --- |
 | Title/subtitle | 12-18 | title should be readable first |
-| Motivation | 130-220 | context, bottleneck, contributions |
-| Method | 240-360 | hero figure plus module explanations |
-| Experiments | 200-320 | setup, results, ablations, interpretation |
-| Footer/contact | 20-60 | QR/email/project/caveat |
+| Motivation | 200-320 | context, bottleneck, contributions, bottom anchor |
+| Method | 380-560 | hero figure plus module explanations and lower-half interpretation |
+| Experiments | 320-460 | setup, results, ablations, interpretation, bottom anchor |
+| In-card contact/caveat | 20-80 | QR/email/project/caveat if needed |
 
 Copy rules:
 
@@ -224,7 +234,8 @@ Copy rules:
 - Keep captions explanatory and source-backed; a key figure caption can be 20-45 words.
 - Remove generic AI prose and vague intensifiers.
 - Left-align body text; avoid full justification if it creates ugly gaps.
-- If a section has fewer than 45 words or fewer than 3 meaningful bullets/caption sentences, check the paper again before final rendering.
+- If a section has fewer than 80 words or fewer than 5 meaningful bullets/caption sentences, check the paper again before final rendering.
+- If the center card has fewer than 2 substantial lower-half blocks below the hero figure, it is too sparse.
 
 ## Visual System
 
@@ -238,6 +249,7 @@ Use a restrained academic design:
 - Figures: align baselines and keep captions visually consistent.
 - Tables: highlight only the rows/columns that support the claim.
 - Vertical rhythm: distribute sections from top to bottom; do not stack everything at the top and leave the lower card empty.
+- The center card must continue below the main method figure with at least two lower-half blocks: one explanatory block and one bottom anchor or mini evidence block.
 
 For a sample-like body-only poster, use a neutral canvas background, three separated rounded white or lightly tinted cards, and compact dark text with restrained accent rules.
 
@@ -252,6 +264,9 @@ When the rendered poster has too much blank space at the bottom:
 - Rebalance section heights so figures, captions, and callouts form a top-to-bottom rhythm.
 - If one card is much shorter internally, add a small in-card diagnostic, mini table, equation note, or limitation box from the paper.
 - Keep the three top-level cards the same height; do not solve bottom blank space by shortening one card.
+- If the lower half of the center card is mostly empty, add a second visual row, method rationale block, result-interpretation strip, or compact ablation note from the paper.
+- If any card's final content block ends above 90% of card height, revise before export.
+- Do not let the center card end after the hero figure; it must have substantial text/visual content below the figure.
 
 ## Production Flow
 
@@ -260,11 +275,24 @@ When the rendered poster has too much blank space at the bottom:
 3. Build the text ledger and confirm text sufficiency for each column.
 4. Confirm the figure list, corpus abstraction decisions, and missing placeholders.
 5. Build a low-fidelity layout first: three rounded 1:2:1 cards, gutters, section titles, figure slots, table slots, and text blocks.
-6. Insert figures, tables, and source-backed text before polishing layout.
-7. Rewrite copy to fit the actual boxes without deleting essential definitions, mechanism explanations, or result interpretations.
-8. Run a vertical fill pass: check bottom margin, internal card occupancy, and bottom anchors.
-9. Render to PDF/PNG and visually review.
-10. Export final PDF, editable PPTX/SVG, and source files as requested.
+6. Build a vertical packing map: top zone, upper-middle zone, lower-middle zone, and bottom anchor for each card.
+7. Insert figures, tables, and source-backed text before polishing layout.
+8. Rewrite copy to fit the actual boxes without deleting essential definitions, mechanism explanations, or result interpretations.
+9. Run a vertical fill pass: check bottom margin, internal card occupancy, lower-half content, and bottom anchors.
+10. Render to PDF/PNG and visually review.
+11. Run `scripts/audit_vertical_fill.py` or an equivalent rendered-image audit using the actual card boxes.
+12. Export final PDF, editable PPTX/SVG, and source files as requested.
+
+Example audit command, replacing coordinates with the real card boxes:
+
+```bash
+python scripts/audit_vertical_fill.py poster/main.png \
+  --card left:0.03,0.04,0.25,0.96 \
+  --card center:0.28,0.04,0.72,0.96 \
+  --card right:0.75,0.04,0.97,0.96
+```
+
+If the audit fails, the poster is not ready. Add lower-half source-backed content, enlarge in-card visuals, or move bottom anchors before export.
 
 Recommended plan template:
 
@@ -298,6 +326,11 @@ Recommended plan template:
 - Card height / vertical span:
 - Bottom margin:
 - Internal occupancy target:
+- Vertical packing map:
+- Lower-half content blocks:
+- Bottom anchors:
+- Vertical fill audit command:
+- Vertical fill audit result:
 - Corner radius:
 - In-card title/contact needs:
 
@@ -328,6 +361,7 @@ Recommended plan template:
 - Missing data:
 - Overfull areas:
 - Excess bottom whitespace:
+- Failed vertical fill audit:
 - Readability concerns:
 ```
 
@@ -343,8 +377,12 @@ Pass/fail checks:
 - Are there exactly three top-level rounded cards in 1:2:1 ratio?
 - Are the gutters between the three cards visibly empty and consistent?
 - Do the three cards fill the usable body height with no large bottom blank strip?
-- Is each card internally occupied enough, with no bottom empty zone larger than about 8-10% of card height?
+- Is each card internally occupied enough, with no bottom empty zone larger than about 5-6% of card height?
+- Does every card include a substantive lower-half content block, not just top-clustered content?
+- Does the center card continue below the hero figure with lower-middle content and a bottom anchor?
+- Is every card's final content block placed near the bottom, with no bottom empty zone larger than about 5-6% of card height?
 - Does every card have a meaningful bottom anchor inside the card?
+- Does the rendered-image vertical fill audit pass?
 - Are separate title, metric, footer, and full-width takeaway bands absent unless explicitly requested?
 - Are side columns supporting, not competing with, the method column?
 - Are headers, gutters, baselines, and card edges aligned?
