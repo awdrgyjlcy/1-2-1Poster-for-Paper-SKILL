@@ -38,13 +38,13 @@ Example verified pages:
 | Paper element | Poster element |
 | --- | --- |
 | Title | Claim-level headline |
-| Abstract | One-sentence value proposition |
-| Introduction | 2-3 motivation bullets |
+| Abstract | Claim plus one-sentence value proposition |
+| Introduction | Task definition, bottleneck, and 3-5 motivation/contribution bullets |
 | Problem statement | One bottleneck callout |
-| Method sections | One hero diagram + module labels |
-| Algorithm details | Short action labels, not full steps |
-| Main results | One compact table or plot |
-| Ablations | 1-2 support plots or mini tables |
+| Method sections | One hero diagram + module labels + mechanism explanation |
+| Algorithm details | Short action labels plus essential notation/objective meaning |
+| Main results | One compact table or plot plus interpretation bullets |
+| Ablations | 1-2 support plots or mini tables plus why-it-works text |
 | Discussion | One takeaway or caution box |
 | Appendix material | Usually omitted unless essential |
 
@@ -59,17 +59,17 @@ Use this checklist after reading the target paper and before writing poster copy
 
 2. Motivation block:
    - Source: introduction, problem statement, first motivating figure, failure examples.
-   - Poster decision: keep 2-3 bullets that explain the bottleneck a viewer must understand.
+   - Poster decision: keep a compact task/context explanation plus 3-5 bullets that explain the bottleneck and contributions a viewer must understand.
    - Drop broad related-work taxonomies, historical setup, and generic importance claims.
 
 3. Center hero method:
    - Source: method overview, algorithm box, architecture figure, pipeline figure.
-   - Poster decision: make one diagram with 3-5 labeled actions or modules.
+   - Poster decision: make one diagram with 3-5 labeled actions or modules and enough explanatory text to define the mechanism.
    - Convert implementation detail into verbs: `sample`, `score`, `route`, `aggregate`, `align`, `verify`.
 
 4. Evidence block:
    - Source: main benchmark table, headline plot, ablations, efficiency analysis.
-   - Poster decision: keep one primary result visual plus 1-2 support visuals.
+   - Poster decision: keep one primary result visual plus 1-2 support visuals and result interpretation text.
    - Highlight rows, columns, or curves that prove the claim; move full tables to QR or paper.
 
 5. Takeaway and caveat:
@@ -81,6 +81,11 @@ Use this checklist after reading the target paper and before writing poster copy
    - Source: the likely questions a conference visitor asks in the first minute.
    - Poster decision: make sure the poster answers 3-5 questions without reading the paper.
    - Typical questions: What is the problem? What is new? How does it work? What proves it? When might it fail?
+
+7. Text sufficiency:
+   - Source: all paper sections needed to answer the viewer questions.
+   - Poster decision: avoid underfilled cards; each major section needs enough body text, captions, or bullets to carry real information.
+   - If a section contains only a heading, icon, and one slogan, revisit the paper and add source-backed definition, mechanism, evidence, or interpretation.
 
 ## Paper-Poster Correspondence Logic
 
@@ -98,7 +103,7 @@ When reading a paper/poster pair, extract four things:
 
 3. Density shift:
    - What gets compressed into bullets, icons, short callouts, or a single equation.
-   - Example pattern: a full benchmark table becomes one highlighted table slice plus one callout.
+   - Example pattern: a full benchmark table becomes one highlighted table slice plus 2-4 interpretation bullets.
 
 4. Omission shift:
    - What disappears entirely because it does not help the poster's one-minute job.
@@ -110,6 +115,7 @@ Record each pair with:
 - poster zone,
 - transformation type,
 - compression action,
+- required text payload,
 - evidence retained,
 - evidence dropped,
 - resulting viewer question answered.
@@ -137,9 +143,9 @@ Across these pairs, the poster follows viewer questions rather than paper chrono
 
 ## 1:2:1 Mapping Rules From The Corpus
 
-- Left column gets the audience problem, bottleneck, motivating example, and contribution bullets.
-- Center column gets the method hero, module labels, minimal equations, and the clearest explanation of novelty.
-- Right column gets the main table or plot, ablations, efficiency or robustness analysis, and final takeaway.
+- Left column gets the audience problem, task definition, bottleneck, motivating example, and contribution bullets.
+- Center column gets the method hero, module labels, minimal equations, mechanism explanation, and the clearest explanation of novelty.
+- Right column gets the experimental setup, main table or plot, ablations, efficiency or robustness analysis, result interpretation, and final takeaway.
 - Footer gets QR/contact/references; do not spend body column space on follow-up material.
 - If a section does not answer the claim, method, evidence, or caveat question, cut it or move it behind the QR code.
 
@@ -160,6 +166,7 @@ Use the returned neighbor titles and poster pages to ask:
 - Do they reserve the largest visual for architecture, qualitative examples, or result comparison?
 - Which metrics become large callouts, and which stay inside small tables?
 - How much setup do they keep before showing the method?
+- How much explanatory text stays inside each card, caption, and module block?
 - What do they omit that the paper spends pages on?
 
 Do not copy a neighbor poster's claims, layout, or visual identity. Use the sample to calibrate compression.
@@ -170,11 +177,11 @@ These examples are patterns, not claims about a specific paper.
 
 | Source paper material | Poster rewrite |
 | --- | --- |
-| Abstract says the method improves performance and efficiency across several benchmarks. | Headline claim plus one result callout: `Adaptive routing improves long-context reasoning while reducing token cost.` |
-| Method section describes many algorithmic substeps. | Center diagram with 3-5 verbs: `encode -> score -> route -> aggregate -> answer`. |
-| Main results table has many datasets and baselines. | One compact table with the strongest rows highlighted and a separate `+X accuracy / -Y compute` callout. |
-| Ablation section has six variants. | One small plot or mini table showing the two variants that explain why the method works. |
-| Limitations mention expensive preprocessing. | Small caution box: `Best when preprocessing can be amortized.` |
+| Abstract says the method improves performance and efficiency across several benchmarks. | Headline claim plus 2-3 text lines explaining task, novelty, and evidence: `Adaptive routing improves long-context reasoning while reducing token cost.` |
+| Method section describes many algorithmic substeps. | Center diagram with 3-5 verbs plus module text: `encode -> score -> route -> aggregate -> answer`, with each module given a short source-backed explanation. |
+| Main results table has many datasets and baselines. | One compact table with strongest rows highlighted plus bullets explaining datasets, baselines, and why the gains matter. |
+| Ablation section has six variants. | One small plot or mini table showing the two variants that explain why the method works, plus one interpretation sentence. |
+| Limitations mention expensive preprocessing. | Small caution box with condition and implication: `Best when preprocessing can be amortized; online deployment needs caching or shorter context windows.` |
 
 ## What Repeats In Strong Posters
 
@@ -182,6 +189,7 @@ These examples are patterns, not claims about a specific paper.
 - One visual center of gravity.
 - Side columns that explain and prove, not compete.
 - Short bullets instead of abstract paragraphs.
+- Enough body text and captions for each section to carry scientific content.
 - Figures that do the storytelling.
 - Metrics that support the claim, not every number in the paper.
 - Visible contact, QR, and references for follow-up.
@@ -189,6 +197,7 @@ These examples are patterns, not claims about a specific paper.
 ## Common Failure Modes
 
 - Copying the paper abstract into the poster.
+- Overcorrecting into a poster with headings, icons, and too little explanatory text.
 - Equal-width columns that flatten the story.
 - Too many small figures.
 - Too many colors with no semantic roles.

@@ -11,12 +11,12 @@ Use this skill to turn a paper, abstract, method outline, or result dump into a 
 
 ## Evidence-Backed Defaults
 
-- Treat the poster as a visual abstract, not a paper reprint.
-- Aim for one main point, then support it with a few figures and short callouts.
+- Treat the poster as a visual abstract, not a paper reprint, but do not make it text-starved.
+- Aim for one main point, then support it with figures plus enough source-backed explanatory text for each major section.
 - Keep the title short, clear, and the largest text on the page.
 - Use 2-3 colors max and avoid red/green pairings.
 - Treat colors as semantic roles, not isolated hex values: primary/header, secondary/module, accent/highlight, background, surface, text, and chart colors.
-- Target roughly 30-40% whitespace, 40-50% graphics, and 20-25% text.
+- Target an information-rich academic balance: roughly 20-30% whitespace, 35-45% graphics/tables, and 25-35% text.
 - Make the main body readable from about 1.5m away.
 - Prefer left-aligned text, clear section flow, visible contact details, and a QR code.
 
@@ -38,20 +38,41 @@ Use this skill to turn a paper, abstract, method outline, or result dump into a 
    one center hero diagram, one or two compact result tables/plots, and only small supporting observations on the sides.
 5. Build the paper-to-poster correspondence matrix:
    map title/abstract, intro, method, results, and limitations into poster zones; decide what gets enlarged, compressed, reordered, or omitted before you write poster copy.
-6. Run the color direction checkpoint:
+6. Run the text sufficiency checkpoint:
+   extract enough important source-backed text from the paper for every poster zone; set a word budget and section-level text floor before layout rendering.
+7. Run the color direction checkpoint:
    based on the paper topic, venue, domain, figures, and logos, propose at least 3 distinct visual color schemes; generate a separate palette preview image for each scheme; ask the user to choose one before any final drawing or rendering continues.
-7. Run the corpus-grounded abstraction pass:
+8. Run the corpus-grounded abstraction pass:
    apply the corpus-derived paper-to-poster compression rules and compare them against the correspondence matrix; when refreshing the skill or doing broad genre learning, search 1000+ accessible paper-poster pairs from official CS conference virtual sites; for a specific paper, optionally sample 20-50 topic-neighbor posters before copywriting.
-8. Compress text into poster language:
-   bullets, labels, callouts, numbers, and figure captions; avoid abstract-style paragraphs.
-9. Produce a `POSTER_121_PLAN.md` before implementation:
-   include title band, section map, figure list, word budget, color/type choices, and review risks.
-10. Build in the user's target stack:
+9. Rewrite text into poster language:
+   compact paragraphs, bullets, labels, callouts, numbers, and figure captions; preserve key definitions, mechanism explanations, result interpretation, and caveats.
+10. Produce a `POSTER_121_PLAN.md` before implementation:
+   include title band, section map, text ledger, figure list, word budget, color/type choices, and review risks.
+11. Build in the user's target stack:
    use LaTeX/tcbposter for print PDF, HTML/CSS for fast visual iteration, or PPTX/SVG when editability matters.
-11. Review visually:
+12. Review visually:
    check 60-second comprehension, center-column dominance, readability from distance, alignment, no clipping, and no unsupported numbers.
-12. Review semantically:
+13. Review semantically:
    ask 3-5 core questions about the paper and verify the poster lets a viewer answer them without reading the full paper.
+
+## Text Sufficiency Checkpoint
+
+Before final layout rendering, build a source-backed text ledger and prevent underfilled sections.
+
+1. Extract a text bank from the paper:
+   problem context, task definition, bottleneck, contribution list, method modules, objective/equation meaning, datasets, metrics, baselines, headline numbers, ablation interpretation, limitations, and final takeaway.
+2. Map the text bank to poster zones:
+   left = motivation, task setup, bottleneck, and contributions; center = method mechanism, module explanations, notation/equation meaning, and design rationale; right = experimental setup, main results, ablations, efficiency/robustness, limitations, and takeaway.
+3. Set an information-rich word budget:
+   default A0/A1 target is 650-950 body words excluding author affiliations and table cell text; for a text-dense reference poster, allow 750-1100 words if readability survives.
+4. Use section-level text floors:
+   left column 130-220 words, center column 240-360 words, right column 200-320 words, footer/contact 20-60 words. Every major body section should have at least 45 words or at least 3 meaningful bullets/caption sentences unless it is purely a figure/table label.
+5. Preserve scientific payload:
+   keep enough text for a viewer to answer what the problem is, what is new, how it works, what evidence supports it, and when it may fail.
+6. Rewrite, do not paste:
+   use compact academic prose, bullets, and captions; avoid copying full paper paragraphs, but also avoid reducing a section to icons, one-line slogans, or empty callouts.
+7. If the first mockup looks sparse:
+   return to the source paper and add missing definitions, module explanations, experimental setup details, result interpretations, or caveats before changing decoration.
 
 ## Color Direction Checkpoint
 

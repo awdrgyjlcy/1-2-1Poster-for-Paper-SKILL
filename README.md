@@ -6,6 +6,7 @@ Design and structure 1:2:1 academic posters with a narrow-left, wide-center, nar
 
 - Turns a paper, abstract, outline, or result dump into a 1:2:1 poster plan.
 - Builds a paper-to-poster correspondence matrix before drafting copy.
+- Builds a source-backed text ledger so the poster keeps enough important paper content.
 - Uses a color-direction checkpoint with 3+ palette options and preview images.
 - Grounds poster compression in accessible paper/poster pairs from official conference sources.
 
@@ -23,10 +24,11 @@ Use this skill when you need:
 
 1. Distill the paper into one claim.
 2. Build the correspondence matrix: what gets enlarged, compressed, reordered, or omitted.
-3. Choose the 1:2:1 structure.
-4. Generate 3+ color schemes and wait for user selection.
-5. Apply the corpus abstraction rules.
-6. Write the poster plan and then draft the poster.
+3. Extract enough source-backed text for motivation, method, experiments, interpretations, and caveats.
+4. Choose the 1:2:1 structure.
+5. Generate 3+ color schemes and wait for user selection.
+6. Apply the corpus abstraction rules.
+7. Write the poster plan and then draft the poster.
 
 ## Key files
 
@@ -34,4 +36,3 @@ Use this skill when you need:
 - `references/poster-corpus-abstraction.md`: corpus learning and paper/poster correspondence logic
 - `references/1-2-1-poster-playbook.md`: detailed planning template and layout guidance
 - `scripts/collect_poster_corpus.py`: corpus collection and topic-neighbor sampling
-

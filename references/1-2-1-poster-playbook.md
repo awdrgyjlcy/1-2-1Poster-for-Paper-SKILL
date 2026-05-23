@@ -9,10 +9,11 @@ Open academic poster guidance is surprisingly consistent:
 - Start with boxes on paper, then add content.
 - Keep the story flowing left to right or top to bottom.
 - Use only 2-3 colors, with strong contrast and no red/green pairing.
-- Keep roughly 30-40% empty space, 40-50% graphics, and 20-25% text.
+- Keep enough white space for readability, but academic posters can be information-rich: use roughly 20-30% empty space, 35-45% graphics/tables, and 25-35% text when the reference style is text-dense.
 - Make the title the largest text, keep it short, and avoid competing logos in the title area.
 - Keep the main text readable from about 1.5m away.
 - Use short bullets, not paper paragraphs.
+- Include enough explanatory text that each section carries scientific content rather than becoming a decorative label.
 - Provide author/contact details, references, and a QR code for follow-up material.
 - Add a semantic check: can the poster answer the paper's core questions, not just look polished?
 
@@ -35,9 +36,13 @@ Collect or infer these before layout:
 
 - Paper title, authors, affiliations, venue, logos.
 - One-sentence contribution claim.
+- Task definition, problem context, and key bottleneck.
 - Core method modules or pipeline stages.
+- Key notation, equation meaning, or objective if needed to understand the method.
+- Experimental setup: datasets, metrics, main baselines, and evaluation protocol.
 - Main benchmark table and 1-2 supporting plots.
 - 3-5 headline numbers that can be verified from the paper/results.
+- Ablation interpretations, limitations, and final takeaway.
 - Code/project URL, QR target, and contact email.
 
 If data or affiliations are missing, mark placeholders explicitly instead of inventing them.
@@ -56,6 +61,21 @@ Before layout, convert the paper into poster decisions:
 | Discussion or limitations | one takeaway or caution box |
 
 For CS papers, use `references/poster-corpus-abstraction.md` before copywriting. If the target topic is narrow, generate a 20-50 item topic-neighbor sample and compare what nearby posters enlarge, compress, and omit.
+
+## Text Ledger
+
+Before drawing, create a text ledger that forces source coverage and prevents sparse posters:
+
+| Source material | Poster destination | Required text payload |
+| --- | --- | --- |
+| Abstract + contribution list | header/intro | claim, novelty, one-sentence value proposition |
+| Introduction | left column | task definition, why it matters, bottleneck, 2-4 contributions |
+| Method | center column | module names, mechanism explanation, design rationale, key equation/notation meaning |
+| Experiments | right column | datasets, metrics, baselines, main numbers, what the numbers mean |
+| Ablations/analysis | right column | why the method works, efficiency/robustness/failure interpretation |
+| Limitations/conclusion | right/footer | caveat, deployment condition, or final takeaway |
+
+For each destination, mark whether it has `definition`, `mechanism`, `evidence`, and `interpretation`. A poster can omit some labels, but it should not omit all interpretation.
 
 ## Correspondence Matrix
 
@@ -121,11 +141,12 @@ Purpose: make the problem and bottleneck obvious in 15 seconds.
 
 Good ingredients:
 
-- 2-3 bullets on why the task is hard.
+- A compact task/context paragraph or 3-5 bullets explaining why the task is hard.
 - One small observation plot, schematic, or motivating example.
 - A bold "preliminary observation" or "key bottleneck" callout.
-- 2-3 contribution bullets if space permits.
+- 3-4 contribution bullets when the paper has multiple contributions.
 - One takeaway sentence that tells the viewer why the poster matters.
+- Optional short related-work contrast if it clarifies the bottleneck.
 
 Avoid:
 
@@ -140,9 +161,10 @@ Purpose: explain the idea visually; this column justifies the `2` in `1:2:1`.
 Good ingredients:
 
 - One hero method figure spanning most of the center width.
-- 2-3 module blocks below the figure.
-- Short captions that describe actions, not implementation trivia.
-- One equation only if it clarifies selection, routing, loss, or objective.
+- 3-5 module blocks below or beside the figure.
+- Captions that describe actions and design rationale.
+- One equation only if it clarifies selection, routing, loss, or objective, with a one-sentence meaning note.
+- 120-180 words of explanatory text around the hero figure when the method is not obvious from the diagram alone.
 
 Figure guidance:
 
@@ -160,9 +182,10 @@ Good ingredients:
 
 - One compact result table or plot at the top.
 - Use tables only when the audience expects benchmark rows/columns; highlight them heavily.
+- A short experimental setup note naming datasets, metrics, and baselines.
 - Efficiency-versus-performance block.
 - 1-2 small ablation or analysis plots.
-- One final takeaway sentence or boxed conclusion.
+- 2-4 result interpretation bullets and one boxed conclusion.
 - Keep methods or limitations visible somewhere on the poster, even if they are compact.
 
 Avoid:
@@ -174,24 +197,25 @@ Avoid:
 
 ## Content Budget
 
-Target 300-550 words total, excluding table text and author affiliations.
+Default target: 650-950 body words, excluding table text and author affiliations. If matching a text-dense sample poster, allow 750-1100 words as long as the body remains readable from poster-session distance and no text clips.
 
-| Area | Max Words | Visual Priority |
+| Area | Target Words | Visual Priority |
 | --- | ---: | --- |
 | Title/subtitle | 12-18 | title should be readable first |
-| Motivation | 70-110 | one small plot or callout |
-| Method | 90-150 | hero figure dominates |
-| Experiments | 90-160 | tables/plots dominate |
-| Footer/contact | 10-25 | QR/email/project |
+| Motivation | 130-220 | context, bottleneck, contributions |
+| Method | 240-360 | hero figure plus module explanations |
+| Experiments | 200-320 | setup, results, ablations, interpretation |
+| Footer/contact | 20-60 | QR/email/project/caveat |
 
 Copy rules:
 
-- Write bullets as phrases, not paragraphs.
+- Use a mix of compact paragraphs, bullets, and captions; do not make every section a one-line slogan.
 - Use numbers where possible: `42% less FLOPs`, not "significantly more efficient".
 - Use active labels: `Select cubes`, `Route salient tokens`, `Skip redundant FFNs`.
-- Keep captions explanatory but short.
+- Keep captions explanatory and source-backed; a key figure caption can be 20-45 words.
 - Remove generic AI prose and vague intensifiers.
 - Left-align body text; avoid full justification if it creates ugly gaps.
+- If a section has fewer than 45 words or fewer than 3 meaningful bullets/caption sentences, check the paper again before final rendering.
 
 ## Visual System
 
@@ -211,12 +235,13 @@ For a CVPR-like example, use navy headers, white body cards, compact black text,
 
 1. Draft `POSTER_121_PLAN.md`.
 2. Produce 3+ color-direction previews and stop for user choice.
-3. Confirm the figure list, corpus abstraction decisions, and missing placeholders.
-4. Build a low-fidelity layout first: boxes, section titles, figure slots, table slots.
-5. Insert figures and tables before polishing prose.
-6. Rewrite copy to fit the actual boxes.
-7. Render to PDF/PNG and visually review.
-8. Export final PDF, editable PPTX/SVG, and source files as requested.
+3. Build the text ledger and confirm text sufficiency for each column.
+4. Confirm the figure list, corpus abstraction decisions, and missing placeholders.
+5. Build a low-fidelity layout first: boxes, section titles, figure slots, table slots, and text blocks.
+6. Insert figures, tables, and source-backed text before polishing layout.
+7. Rewrite copy to fit the actual boxes without deleting essential definitions, mechanism explanations, or result interpretations.
+8. Render to PDF/PNG and visually review.
+9. Export final PDF, editable PPTX/SVG, and source files as requested.
 
 Recommended plan template:
 
@@ -232,6 +257,14 @@ Recommended plan template:
 - What to compress:
 - What to omit:
 
+## Text Ledger
+- Problem/task text:
+- Method/module text:
+- Experiment/setup text:
+- Result interpretation text:
+- Limitation/takeaway text:
+- Total body word target:
+
 ## Canvas
 - Size/orientation:
 - Venue/theme:
@@ -246,16 +279,19 @@ Recommended plan template:
 ## Left: Motivation
 - Purpose:
 - Bullets:
+- Paragraph/caption text:
 - Visuals:
 
 ## Center: Method
 - Hero figure:
 - Module blocks:
+- Explanation text:
 - Equations/callouts:
 
 ## Right: Experiments
 - Main table/plot:
 - Supporting plots:
+- Setup/result interpretation text:
 - Takeaway:
 
 ## Risks
@@ -278,6 +314,8 @@ Pass/fail checks:
 - Are headers, gutters, baselines, and card edges aligned?
 - Is there no clipped text, tiny caption, broken logo, or unexplained acronym?
 - Does the poster avoid paper-like paragraphs?
+- Does each major section contain enough source-backed text to explain its role?
+- Does the poster include task definition, method rationale, experiment setup, result interpretation, and at least one caveat/takeaway?
 - Can a viewer answer 3-5 core questions about the paper from the poster alone?
 
 If any pass/fail check fails, revise the plan or layout before export.
